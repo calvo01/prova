@@ -1,0 +1,23 @@
+window.editBook = function(index) {
+    const books = getBooks();
+    const book = books[index];
+    document.getElementById('title').value = book.title;
+    document.getElementById('author').value = book.author;
+    document.getElementById('year').value = book.year;
+    document.getElementById('genre').value = book.genre;
+    document.getElementById('synopsis').value = book.synopsis;
+    
+    addBookForm.removeEventListener('submit', addBookFormSubmitHandler);
+    addBookForm.addEventListener('submit', function updateBookHandler(e) {
+        e.preventDefault();
+        const updatedBook = {
+            title: document.getElementById('title').value,
+            author: document.getElementById('author').value,
+            year: document.getElementById('year').value,
+            genre: document.getElementById('genre').value,
+            synopsis: document.getElementById('synopsis').value
+        };
+        updateBook(index, updatedBook);
+        window.location.href = 'index.html';
+    });
+};
