@@ -1,0 +1,19 @@
+function renderBooks() {
+    const books = getBooks();
+    bookTable.innerHTML = '';
+    books.forEach((book, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${book.title}</td>
+            <td>${book.author}</td>
+            <td>${book.year}</td>
+            <td>${book.genre}</td>
+            <td>${book.synopsis}</td>
+            <td>
+                <button onclick="editBook(${index})">Editar</button>
+                <button onclick="removeBook(${index})">Excluir</button>
+            </td>
+        `;
+        bookTable.appendChild(row);
+    });
+}
