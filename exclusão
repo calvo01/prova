@@ -1,0 +1,4 @@
+window.removeBook = function(index) {
+    deleteBook(index);
+    renderBooks();
+};
