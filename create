@@ -1,0 +1,12 @@
+addBookForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const book = {
+        title: document.getElementById('title').value,
+        author: document.getElementById('author').value,
+        year: document.getElementById('year').value,
+        genre: document.getElementById('genre').value,
+        synopsis: document.getElementById('synopsis').value
+    };
+    addBook(book);
+    window.location.href = 'index.html';
+});
